@@ -1,3 +1,7 @@
 # Kdevelop
 /.kdev4
 *.kdev4
+
+# Compiled Files
+*.o
+test
