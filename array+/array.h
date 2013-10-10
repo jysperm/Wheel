@@ -68,32 +68,32 @@ template<class T> Array<T>& Array<T>::operator = (const Array& other)
 
 template<class T> T& Array<T>::at(int offset)
 {
-
+    return data[offset];
 }
 
 template<class T> T& Array<T>::operator [] (int offset)
 {
-
+    return data[offset];
 }
 
 template<class T> T& Array<T>::frist()
 {
-
+    return data[0];
 }
 
 template<class T> T& Array<T>::last()
 {
-
+    return data[length - 1];
 }
 
 template<class T> T* Array<T>::raw()
 {
-
+    return data;
 }
 
 template<class T> int Array<T>::size() const
 {
-
+    return length;
 }
 
 #endif // H_JYDS_ARRAY_PLUS
