@@ -33,7 +33,7 @@ template<class T> Array<T>::Array(int length, const T defaultValue)
 {
     data = new T[length];
     this->length = length;
-    for(int *p = data; p != data[length]; p++)
+    for(int *p = data; p != &data[length]; p++)
         *p = defaultValue;
 }
 
