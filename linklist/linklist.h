@@ -14,7 +14,6 @@ extern "C" {
 
 typedef struct node{
     void *data;
-    unsigned long size;
     struct node *next;
 }NODE;
 
@@ -25,13 +24,13 @@ typedef struct list{
 
 LIST *list_create();
 
-NODE *list_add(LIST *list, void *data, unsigned int);
+NODE *list_add(LIST *list, void *data, unsigned int where);
 NODE *list_add_from_head(LIST *list,void *data);
 NODE *list_add_from_tail(LIST *list,void *data);
 NODE *list_find(LIST *list, void *data);
 NODE *list_at(LIST *list, int index);
 
-void node_delete(LIST *list, NODE *node);
+void list_node_delete(LIST *list, NODE *node);
 void list_delete(LIST *list);
 #ifdef	__cplusplus
 }
