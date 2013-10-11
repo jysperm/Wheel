@@ -8,8 +8,8 @@ int main()
 {
     Array<int> a(10, 0);
     
-    a.at[0] = 1234;
-    a.at[8] = 1234;
+    a.at(0) = 1234;
+    a.at(8) = 1234;
     assert(a[0] == 1234);
     assert(a.last() == 0);
     

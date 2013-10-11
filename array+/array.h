@@ -48,7 +48,7 @@ template<class T> Array<T>::Array(const Array &other)
 
 template<class T> Array<T>::~Array()
 {
-    delete data;
+    delete[] data;
 }
 
 template<class T> Array<T>& Array<T>::operator = (const Array& other)
