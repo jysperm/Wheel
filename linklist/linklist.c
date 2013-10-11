@@ -65,7 +65,7 @@ void list_append(LIST *list, void *data)
     
     if(head)
     {
-        if(!tail) return NULL;
+        if(!tail) return;
         tail->next = node;
         tail = node;
     }else{
