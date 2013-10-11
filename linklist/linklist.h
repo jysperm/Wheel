@@ -20,18 +20,22 @@ typedef struct node{
 typedef struct list{
     NODE *head;
     NODE *tail;  
+    unsigned int length;
 }LIST;
 
 LIST *list_create();
 
-NODE *list_add(LIST *list, void *data, unsigned int where);
-NODE *list_add_from_head(LIST *list,void *data);
-NODE *list_add_from_tail(LIST *list,void *data);
-NODE *list_find(LIST *list, void *data);
-NODE *list_at(LIST *list, int index);
+NODE *node_create(void *data);
+NODE *list_get_node_by_index(LIST *list, int index);
 
-void list_node_delete(LIST *list, NODE *node);
-void list_delete(LIST *list);
+int list_index(LIST *list, NODE *node);
+int list_index_by_data(LIST *list, void *data);
+
+void list_append(LIST *list, void *data);
+void list_insert_by_index(LIST *list, void *data, int index);
+void list_insert_by_node(LIST *list, void *data, NODE *node);
+
+
 #ifdef	__cplusplus
 }
 #endif
