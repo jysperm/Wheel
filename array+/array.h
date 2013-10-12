@@ -1,6 +1,11 @@
 #ifndef H_JYDS_ARRAY_PLUS
 #define H_JYDS_ARRAY_PLUS
 
+template<class T> class Array;
+
+template<class T> bool operator == (const Array<T> &a, const Array<T> &b);
+template<class T> bool operator != (const Array<T> &a, const Array<T> &b);
+
 template<class T> class Array
 {
 public:
@@ -17,6 +22,9 @@ public:
     T* raw();
 
     int size() const;
+
+    friend bool operator == <> (const Array<T> &a, const Array<T> &b);
+    friend bool operator != <> (const Array<T> &a, const Array<T> &b);
 
 private:
     T* data;
@@ -56,7 +64,7 @@ template<class T> Array<T>& Array<T>::operator = (const Array& other)
     if(&other == this)
         return *this;
 
-    delete data;
+    delete[] data;
 
     length = other.length;
     data = new T[length];
@@ -94,6 +102,23 @@ template<class T> T* Array<T>::raw()
 template<class T> int Array<T>::size() const
 {
     return length;
+}
+
+template<class T> bool operator == (const Array<T> &a, const Array<T> &b)
+{
+    if(a.length != b.length)
+        return false;
+
+    for(int i = 0; i < a.length; i++)
+        if(a.data[i] != b.data[i])
+            return false;
+
+    return true;
+}
+
+template<class T> bool operator != (const Array<T> &a, const Array<T> &b)
+{
+    return !(a == b);
 }
 
 #endif // H_JYDS_ARRAY_PLUS
