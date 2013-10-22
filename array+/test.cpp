@@ -31,12 +31,12 @@ int main()
         assert(d[2] == "string");
 
     // compare
-    Array<int> e;
+    Array<int> e(10);
     e[0] = 1234;
     e[8] = 4321;
         assert((e == a) == true);
-        assert((e == a) == false);
-        assert((b == a) == false);
+        assert((e != a) != true);
+        assert((b == a) != true);
 
     return 0;
 }
