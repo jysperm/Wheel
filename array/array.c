@@ -29,3 +29,17 @@ sArray* array_create_defaults(int elemSize, int length, void *defaultValue)
 
      return array;
 }
+
+sArray* array_copy(sArray *other)
+{
+    sArray *array;
+    int iItem, iByte;
+
+    array = array_create(other->elemSize, other->length);
+
+    for(iItem = 0; iItem < other->length; iItem++)
+        for(iByte = 0; iByte < other->elemSize; iByte++)
+            ((char*) array->data)[iItem * other->elemSize + iByte] = ((char*) other->data)[iItem * other->elemSize + iByte];
+
+    return array;
+}
