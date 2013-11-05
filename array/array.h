@@ -9,24 +9,24 @@ typedef struct {
     int elemSize;
     int length;
     void *data;
-} sArray;
+} tArray;
 
-sArray* array_create(int elemSize, int length);
-sArray* array_create_defaults(int elemSize, int length, void *defaultValue);
-sArray* array_copy(sArray *other);
-void array_override(sArray *target, sArray *source);
-void array_free(sArray *array);
+tArray* array_create(int elemSize, int length);
+tArray* array_create_defaults(int elemSize, int length, void *defaultValue);
+tArray* array_copy(tArray *other);
+void array_override(tArray *target, tArray *source);
+void array_free(tArray *array);
 
-void* array_at(sArray *array, int offset);
-void* array_frist(sArray *array);
-void* array_last(sArray *array);
-void* array_raw(sArray *array);
+void* array_at(tArray *array, int offset);
+void* array_frist(tArray *array);
+void* array_last(tArray *array);
+void* array_raw(tArray *array);
 
-int array_size(sArray *array);
-int array_elemSize(sArray *array);
+int array_size(tArray *array);
+int array_elemSize(tArray *array);
 
-int array_equal(sArray *a, sArray *b);
-int array_not_equal(sArray *a, sArray *b);
+int array_equal(tArray *a, tArray *b);
+int array_not_equal(tArray *a, tArray *b);
 
 #ifdef __cplusplus
 }   // extern "C" {

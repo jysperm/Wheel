@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include "array.h"
 
-sArray* array_create(int elemSize, int length)
+tArray* array_create(int elemSize, int length)
 {
     void *data;
-    sArray *array;
+    tArray *array;
 
     data = malloc(elemSize * length);
-    array = (sArray*) malloc(sizeof(sArray));
+    array = (tArray*) malloc(sizeof(tArray));
 
     array->elemSize = elemSize;
     array->length = length;
@@ -16,9 +16,9 @@ sArray* array_create(int elemSize, int length)
     return array;
 }
 
-sArray* array_create_defaults(int elemSize, int length, void *defaultValue)
+tArray* array_create_defaults(int elemSize, int length, void *defaultValue)
 {
-     sArray *array;
+     tArray *array;
      int iItem, iByte;
 
      array = array_create(elemSize, length);
@@ -30,9 +30,9 @@ sArray* array_create_defaults(int elemSize, int length, void *defaultValue)
      return array;
 }
 
-sArray* array_copy(sArray *other)
+tArray* array_copy(tArray *other)
 {
-    sArray *array;
+    tArray *array;
     int iItem, iByte;
 
     array = array_create(other->elemSize, other->length);
@@ -44,53 +44,53 @@ sArray* array_copy(sArray *other)
     return array;
 }
 
-void array_override(sArray *target, sArray *source)
+void array_override(tArray *target, tArray *source)
 {
 
 }
 
-void array_free(sArray *array)
+void array_free(tArray *array)
 {
     free(array->data);
     free(array);
 }
 
-void* array_at(sArray *array, int offset)
+void* array_at(tArray *array, int offset)
 {
 
 }
 
-void* array_frist(sArray *array)
+void* array_frist(tArray *array)
 {
 
 }
 
-void* array_last(sArray *array)
+void* array_last(tArray *array)
 {
 
 }
 
-void* array_raw(sArray *array)
+void* array_raw(tArray *array)
 {
     return array->data;
 }
 
-int array_size(sArray *array)
+int array_size(tArray *array)
 {
     return array->length;
 }
 
-int array_elemSize(sArray *array)
+int array_elemSize(tArray *array)
 {
     return array->elemSize;
 }
 
-int array_equal(sArray *a, sArray *b)
+int array_equal(tArray *a, tArray *b)
 {
 
 }
 
-int array_not_equal(sArray *a, sArray *b)
+int array_not_equal(tArray *a, tArray *b)
 {
 
 }
