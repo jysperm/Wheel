@@ -8,7 +8,7 @@ typedef struct {
 } Array;
 
 Array* array_create(int elemSize, int length);
-Array* array_createWithDefaultValue(int elemSize, int length, void *defaultValue);
+Array* array_create_defaults(int elemSize, int length, void *defaultValue);
 Array* array_copy(Array *other);
 void array_override(Array *target, Array *source);
 void array_free(Array *array);
@@ -21,5 +21,7 @@ void* array_raw(Array *array);
 int array_size(Array *array);
 int array_elemSize(Array *array);
 
+int array_equal(Array *a, Array *b);
+int array_not_equal(Array *a, Array *b);
 
 #endif // H_JYDS_ARRAY
