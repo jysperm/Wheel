@@ -29,7 +29,7 @@ int array_equal(sArray *a, sArray *b);
 int array_not_equal(sArray *a, sArray *b);
 
 #ifdef __cplusplus
-}	// extern "C" {
+}   // extern "C" {
 #endif
 
 #endif // H_JYDS_ARRAY
