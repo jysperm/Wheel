@@ -38,5 +38,7 @@ int main()
         assert((e != a) != true);
         assert((b == a) != true);
 
+    cout<<"PASS array+"<<endl;
+
     return 0;
 }
