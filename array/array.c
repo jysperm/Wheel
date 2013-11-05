@@ -43,3 +43,54 @@ sArray* array_copy(sArray *other)
 
     return array;
 }
+
+void array_override(sArray *target, sArray *source)
+{
+
+}
+
+void array_free(sArray *array)
+{
+    free(array->data);
+    free(array);
+}
+
+void* array_at(sArray *array, int offset)
+{
+
+}
+
+void* array_frist(sArray *array)
+{
+
+}
+
+void* array_last(sArray *array)
+{
+
+}
+
+void* array_raw(sArray *array)
+{
+    return array->data;
+}
+
+int array_size(sArray *array)
+{
+    return array->length;
+}
+
+int array_elemSize(sArray *array)
+{
+    return array->elemSize;
+}
+
+int array_equal(sArray *a, sArray *b)
+{
+
+}
+
+int array_not_equal(sArray *a, sArray *b)
+{
+
+}
