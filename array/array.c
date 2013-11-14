@@ -46,7 +46,11 @@ tArray* array_copy(tArray *other)
 
 void array_override(tArray *target, tArray *source)
 {
+    if(target == source)
+        return;
 
+    array_free(target);
+    target = array_copy(source);
 }
 
 void array_free(tArray *array)
@@ -57,17 +61,17 @@ void array_free(tArray *array)
 
 void* array_at(tArray *array, int offset)
 {
-
+    return &((char*) array->data)[offset * array->elemSize];
 }
 
 void* array_frist(tArray *array)
 {
-
+    return array_at(array, 0);
 }
 
 void* array_last(tArray *array)
 {
-
+    return array_at(array, array->length - 1);
 }
 
 void* array_raw(tArray *array)
@@ -87,10 +91,19 @@ int array_elemSize(tArray *array)
 
 int array_equal(tArray *a, tArray *b)
 {
+    int i;
 
+    if(a->length != b->length)
+        return 0;
+
+    for(i = 0; i < a->length * a->elemSize; i++)
+        if(((char*) a->data)[i] != ((char*) b->data)[i])
+            return 0;
+
+    return 1;
 }
 
 int array_not_equal(tArray *a, tArray *b)
 {
-
+    return !array_equal(a, b);
 }
